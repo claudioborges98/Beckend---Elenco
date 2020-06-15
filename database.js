@@ -14,3 +14,21 @@ const pool = new Pool({
     port: '5432',
     ssl: { rejectUnauthorized: false }
 });
+
+const sql = `
+    CREATE TABLE IF NOT EXISTS elenco 
+    (
+        id serial primary key,
+        nome varchar(200) not null,
+        numero varchar(3),
+        idade varchar(11),
+        salario varchar(50),
+        contrato varchar(50)
+    )
+`;
+
+// ABRE CONEXÃO, CRIA TABELA NO POSTGRE E JÁ FECHA A CONEXÃO
+pool.query(sql, function(error, result) {
+    if(error)
+        throw error;
+});
