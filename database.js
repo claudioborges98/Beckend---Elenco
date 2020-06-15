@@ -1,10 +1,5 @@
-// yarn add pg
-
 const Pool = require('pg').Pool;
 
-///1 - Abrir a conexão
-//2 - Executar o comando SQL (query, insert)
-//3 - Fechar a conexão
 
 const pool = new Pool({  
     user: 'jteollvdukwjec', 
@@ -27,7 +22,6 @@ const sql = `
     )
 `;
 
-// ABRE CONEXÃO, CRIA TABELA NO POSTGRE E JÁ FECHA A CONEXÃO
 pool.query(sql, function(error, result) {
     if(error)
         throw error;
